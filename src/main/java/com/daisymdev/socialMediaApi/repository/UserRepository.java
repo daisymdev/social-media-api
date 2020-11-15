@@ -1,4 +1,7 @@
 package com.daisymdev.socialMediaApi.repository;
 
-public interface UserRepository {
+import org.springframework.data.repository.CrudRepository;
+import com.daisymdev.socialMediaApi.entity.User;
+
+public interface UserRepository extends CrudRepository<User, Long>{
 }

@@ -1,4 +1,7 @@
 package com.daisymdev.socialMediaApi.repository;
 
-public interface CommentRepository {
+import org.springframework.data.repository.CrudRepository;
+import com.daisymdev.socialMediaApi.entity.Comment;
+
+public interface CommentRepository extends CrudRepository<Comment, Long> {
 }

@@ -1,14 +1,13 @@
 package com.daisymdev.socialMediaApi.entity;
 
+import java.util.Date;
 import java.util.Set;
 
 public class Post {
     private Long id;
-    private String username;
-    private String profilePictureUrl;
-    private Set<User> following;
-    private String password;
-    private Set<Post> posts;
+    private String content;
+    private Date date;
+    private User user;
     private Set<Comment> comments;
 
     public Long getId() {
@@ -19,28 +18,28 @@ public class Post {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getContent() {
+        return content;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getPassword() {
-        return password;
+    public Date getDate() {
+        return date;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public Set<Post> getPosts() {
-        return posts;
+    public User getUser() {
+        return user;
     }
 
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<Comment> getComments() {
@@ -49,21 +48,5 @@ public class Post {
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
-    }
-
-    public Set<User> getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(Set<User> following) {
-        this.following = following;
-    }
-
-    public String getProfilePictureUrl() {
-        return profilePictureUrl;
-    }
-
-    public void setProfilePictureUrl(String profilePictureUrl) {
-        this.profilePictureUrl = profilePictureUrl;
     }
 }

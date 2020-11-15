@@ -1,8 +1,13 @@
 package com.daisymdev.socialMediaApi.entity;
 
+import sun.jvm.hotspot.gc.shared.Generation;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+
+@Entity
 public class Post {
     private Long id;
     private String content;
@@ -10,6 +15,8 @@ public class Post {
     private User user;
     private Set<Comment> comments;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -34,6 +41,8 @@ public class Post {
         this.date = date;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "UserId")
     public User getUser() {
         return user;
     }
@@ -42,6 +51,7 @@ public class Post {
         this.user = user;
     }
 
+    @OneToMany(mappedBy = "post")
     public Set<Comment> getComments() {
         return comments;
     }

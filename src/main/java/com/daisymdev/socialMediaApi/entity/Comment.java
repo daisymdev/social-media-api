@@ -2,14 +2,30 @@ package com.daisymdev.socialMediaApi.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.daisymdev.socialMediaApi.entity.Post;
+import com.daisymdev.socialMediaApi.entity.User;
+
+@Entity
 public class Comment {
 
     private Long id;
     private String content;
     private Date date;
     private User user;
+
+    @JsonIgnore
     private Post post;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -34,6 +50,8 @@ public class Comment {
         this.date = date;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "postId")
     public Post getPost() {
         return post;
     }
@@ -42,6 +60,8 @@ public class Comment {
         this.post = post;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "userId")
     public User getUser() {
         return user;
     }

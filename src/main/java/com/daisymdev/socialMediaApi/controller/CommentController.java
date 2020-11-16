@@ -5,12 +5,10 @@ import com.daisymdev.socialMediaApi.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import sun.jvm.hotspot.oops.ObjectHeap;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/users/{userId}/posts/{postId}/comments")
 public class CommentController {
 
     @Autowired

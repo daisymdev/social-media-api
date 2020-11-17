@@ -54,6 +54,4 @@ public class UserService {
         return repo.save(user);
     }
 
-    public Object getFollowedUsers() {
-    }
 }

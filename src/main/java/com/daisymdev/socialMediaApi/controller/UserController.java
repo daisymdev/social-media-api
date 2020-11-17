@@ -39,7 +39,7 @@ public class UserController {
     @RequestMapping(value = "/{id}/follows")
     public ResponseEntity<Object> showFollowedUsers(@PathVariable Long id) {
         try {
-            return new ResponseEntity<Object>(service.getFollowedUsers(), HttpStatus.CREATED);
+            return new ResponseEntity<Object>(service.getFollowedUsers(id), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

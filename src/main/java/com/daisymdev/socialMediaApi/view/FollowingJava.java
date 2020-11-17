@@ -8,7 +8,7 @@ public class FollowingJava {
 
     private Set<User> following;
 
-    public void Following(User user) {
+    public FollowingJava(User user) {
         following = user.getFollowing();
     }
 

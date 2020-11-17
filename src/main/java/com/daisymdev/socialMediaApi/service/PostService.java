@@ -6,6 +6,8 @@ import com.daisymdev.socialMediaApi.entity.User;
 import com.daisymdev.socialMediaApi.repository.PostRepository;
 import com.daisymdev.socialMediaApi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 import java.util.Date;
 
@@ -22,7 +24,7 @@ public class PostService {
     }
 
     public Post getPost(Long id) {
-        return repo.findOne();
+        return repo.findOne(id);
     }
 
     public Post updatePost(Post post, Long id) throws Exception {

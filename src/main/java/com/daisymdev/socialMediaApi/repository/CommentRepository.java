@@ -4,4 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.daisymdev.socialMediaApi.entity.Comment;
 
 public interface CommentRepository extends CrudRepository<Comment, Long> {
+    public void delete(Long commentId);
 }

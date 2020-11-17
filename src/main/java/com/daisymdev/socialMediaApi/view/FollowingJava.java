@@ -6,17 +6,18 @@ import java.util.Set;
 
 public class FollowingJava {
 
-    private Set<User> following;
+    private User following;
+
 
     public FollowingJava(User user) {
-        following = user.getFollowing();
+        following = (User) user.getFollowing();
     }
 
-    public Set<User> getFollowing() {
+    public User getFollowing() {
         return following;
     }
 
     public void setFollowing(Set<User> following) {
-        this.following = following;
+        this.following = (User) following;
     }
 }

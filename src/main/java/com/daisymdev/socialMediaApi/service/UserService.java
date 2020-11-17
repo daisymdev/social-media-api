@@ -7,6 +7,7 @@ import com.daisymdev.socialMediaApi.entity.User;
 import com.daisymdev.socialMediaApi.repository.UserRepository;
 import com.daisymdev.socialMediaApi.view.FollowingJava;
 
+
 @Service
 public class UserService {
 
@@ -27,18 +28,19 @@ public class UserService {
     }
 
     public FollowingJava follow(Long userId, Long followId) throws Exception {
-        User user = repo.findOne(userId);
-        User follow = repo.findOne(followId);
+        User user = repo.findById(userId).get();
+        User follow = repo.findById(followId).get();
         if (user == null || follow == null) {
             throw new Exception("User does not exist.");
         }
+
         user.getFollowing().add(follow);
         repo.save(user);
         return new FollowingJava(user);
     }
 
     public FollowingJava getFollowedUsers(Long userId) throws Exception {
-        User user = repo.findOne(userId);
+        User user = repo.findById(userId).get();
         if (user == null) {
             throw new Exception("User does not exist.");
         }
@@ -46,7 +48,7 @@ public class UserService {
     }
 
     public User updateProfilePicture(Long userId, String url) throws Exception {
-        User user = repo.findOne(userId);
+        User user = repo.findById(userId).get();
         if (user == null) {
             throw new Exception("User does not exist");
         }

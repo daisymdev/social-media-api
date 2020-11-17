@@ -23,9 +23,9 @@ public class CommentController {
         }
     }
 
-    @RequestMapping(value = "/{commentId}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteComment(@PathVariable Long commentId) {
-        service.deleteComment(commentId);
-        return new ResponseEntity<Object>("Deleted comment with id: " + commentId, HttpStatus.OK);
-    }
+//    @RequestMapping(value = "/{commentId}", method = RequestMethod.DELETE)
+//    public ResponseEntity<Object> deleteComment(@PathVariable Long commentId) {
+//        service.deleteComment(commentId);
+//        return new ResponseEntity<Object>("Deleted comment with id: " + commentId, HttpStatus.OK);
+//    }
 }

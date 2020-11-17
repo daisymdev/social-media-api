@@ -1,6 +1,7 @@
 package com.daisymdev.socialMediaApi.entity;
 
 import java.util.Date;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.daisymdev.socialMediaApi.entity.Post;
-import com.daisymdev.socialMediaApi.entity.User;
 
 @Entity
 public class Comment {

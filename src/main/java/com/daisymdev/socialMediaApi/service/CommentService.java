@@ -11,6 +11,7 @@ import com.daisymdev.socialMediaApi.repository.PostRepository;
 import com.daisymdev.socialMediaApi.repository.UserRepository;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class CommentService {
@@ -25,19 +26,18 @@ public class CommentService {
     private UserRepository userRepo;
 
     public Comment createComment(Comment comment, Long userId, Long postId) throws Exception {
-        User user = userRepo.findOne(userId);
-        Post post = postRepo.findOne(postId);
+        User user = userRepo.findById(userId).get();
+        Post post = postRepo.findById(postId).get();
         if(user == null || post == null) {
             throw new Exception("User or Post does not exist.");
         }
-
         comment.setDate(new Date());
         comment.setUser(user);
         comment.setPost(post);
         return repo.save(comment);
     }
 
-    public void deleteComment(Long commentId) {
-        repo.delete(commentId);
-    }
+//    public void deleteComment(Long commentId) {
+//        repo.delete(commentId);
+//    }
 }

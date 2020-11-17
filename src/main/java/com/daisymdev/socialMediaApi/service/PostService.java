@@ -8,9 +8,9 @@ import com.daisymdev.socialMediaApi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import java.util.Date;
 
+@Service
 public class PostService {
 
     @Autowired
@@ -24,11 +24,11 @@ public class PostService {
     }
 
     public Post getPost(Long id) {
-        return repo.findOne(id);
+        return repo.findById(id).get();
     }
 
     public Post updatePost(Post post, Long id) throws Exception {
-        Post foundPost = repo.findOne(id);
+        Post foundPost = repo.findById(id).get();
         if (foundPost == null) {
             throw new Exception("Post not found.");
         }
@@ -37,7 +37,7 @@ public class PostService {
     }
 
     public Post createPost(Post post, Long userId) throws Exception {
-        User user = userRepo.findOne(userId);
+        User user = userRepo.findById(userId).get();
         if (user == null) {
             throw new Exception("User not found.");
         }

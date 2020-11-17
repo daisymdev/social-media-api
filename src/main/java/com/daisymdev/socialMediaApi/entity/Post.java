@@ -1,6 +1,7 @@
 package com.daisymdev.socialMediaApi.entity;
 
 import java.util.Date;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.Entity;

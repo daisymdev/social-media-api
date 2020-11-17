@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.Service;
 
 @RestController
 @RequestMapping("/users/{userId}/posts")
@@ -24,14 +23,14 @@ public class PostController {
         return new ResponseEntity<Object>(service.getPost(postId), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{postId}", method = RequestMethod.PUT)
-    public ResponseEntity<Object> updatePost(@RequestBody Post post, @PathVariable Long postId) {
-        try {
-            return new ResponseEntity<Object>(service.updatePost(post, postId), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
+//    @RequestMapping(value = "/{postId}", method = RequestMethod.PUT)
+//    public ResponseEntity<Object> updatePost(@RequestBody Post post, @PathVariable Long postId) {
+//        try {
+//            return new ResponseEntity<Object>(service.updatePost(post, postId), HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Object> createPost(@RequestBody Post post, @PathVariable Long userId) {

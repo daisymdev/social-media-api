@@ -17,7 +17,7 @@ public class UserService {
         return repo.save(user);
     }
 
-    public User Login(User user) throws Exception {
+    public User login(User user) throws Exception {
         User foundUser = repo.findByUsername(user.getUsername());
         if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
             return foundUser;
@@ -37,7 +37,7 @@ public class UserService {
         return new FollowingJava(user);
     }
 
-    public FollowingJava getFollowedUsers(Long userId, String url) throws Exception {
+    public FollowingJava getFollowedUsers(Long userId) throws Exception {
         User user = repo.findOne(userId);
         if (user == null) {
             throw new Exception("User does not exist.");
@@ -52,5 +52,8 @@ public class UserService {
         }
         user.setProfilePictureUrl(url);
         return repo.save(user);
+    }
+
+    public Object getFollowedUsers() {
     }
 }

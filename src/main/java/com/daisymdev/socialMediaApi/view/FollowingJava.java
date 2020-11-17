@@ -1,10 +1,14 @@
 package com.daisymdev.socialMediaApi.view;
 
+import com.daisymdev.socialMediaApi.entity.User;
+
+import java.util.Set;
+
 public class FollowingJava {
 
     private Set<User> following;
 
-    public Following(User user) {
+    public void Following(User user) {
         following = user.getFollowing();
     }
 

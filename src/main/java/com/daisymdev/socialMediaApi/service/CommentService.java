@@ -10,6 +10,8 @@ import com.daisymdev.socialMediaApi.repository.CommentRepository;
 import com.daisymdev.socialMediaApi.repository.PostRepository;
 import com.daisymdev.socialMediaApi.repository.UserRepository;
 
+import java.util.Date;
+
 @Service
 public class CommentService {
 
